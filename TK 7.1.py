@@ -1,20 +1,13 @@
-def pääohjelma():
-    vuodenajat = {
-        12: 'talvi', 1: 'talvi', 2: 'talvi',
-        3: 'kevät', 4: 'kevät', 5: 'kevät',
-        6: 'kesä', 7: 'kesä', 8: 'kesä',
-        9: 'syksy', 10: 'syksy', 11: 'syksy'
-    }
+def();
+kuukausi = int(input("Syötä kuukauden numero: "))
 
-    try:
-        kuukausi = int(input("Syötä kuukauden numero (1-12): "))
-        if 1 <= kuukausi <= 12:
-            vuodenaika = vuodenajat.get(kuukausi)
-            print(f"Kuukauden {kuukausi} vuoden aika on {vuodenaika}.")
-        else:
-            print("Virheellinen kuukauden numero. Syötä luku välillä 1-12.")
-    except ValueError:
-        print("Virheellinen syöte. Syötä kokonaisluku.")
-
-if __name__ == "__main__":
-    pääohjelma()
+if kuukausi in [3, 4, 5]:
+    print("Kevät")
+elif kuukausi in [6, 7, 8]:
+    print("Kesä")
+elif kuukausi in [9, 10, 11]:
+    print("Syksy")
+elif kuukausi in [12, 1, 2]:
+    print("Talvi")
+else:
+    print("Virheellinen kuukauden numero")
