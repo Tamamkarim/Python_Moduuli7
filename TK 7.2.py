@@ -1,20 +1,28 @@
-def pääohjelma():
-    vuodenaika = (
-        ('talvi', 'talvi', 'talvi'),  # joulukuu, tammikuu, helmikuu
-        ('kevät', 'kevät', 'kevät'),  # maaliskuu, huhtikuu, toukokuu
-        ('kesä', 'kesä', 'kesä'),    # kesäkuu, heinäkuu, elokuu
-        ('syksy', 'syksy', 'syksy')  # syyskuu, lokakuu, marraskuu
-    )
-    kuukausi = int(input("Syötä kuukauden numero (1-12): "))
+def 
+    tulosta_vuodenaika(kuukausi_numero):
+    vuodenajat = {
+        (12, 1, 2): "Talvi",
+        (3, 4, 5): "Kevät",
+        (6, 7, 8): "Kesä",
+        (9, 10, 11): "Syksy"
+    }
 
-    if 1 <= kuukausi <= 12:
+    for kuukaudet, vuodenaika in vuodenajat.items():
+        if kuukausi_numero in kuukaudet:
+            print(f"Kuukausi {kuukausi_numero} on {vuodenaika}.")
+            return
 
-        vuodenaika_indeksi = (kuukausi - 1) // 3
-
-        vuodenajan_nimi = vuodenaika[vuodenaika_indeksi][0]
-        print(f"Kuukauden {kuukausi} vuoden aika on {vuodenajan_nimi}.")
-    else:
-        print("Virheellinen kuukauden numero. Syötä luku välillä 1-12.")
+    print("Virheellinen kuukausi numero.")
 
 if __name__ == "__main__":
-    pääohjelma()
+    while True:
+        try:
+            kuukausi_numero = int(input("Anna kuukauden numero (1-12): "))
+            if 1 <= kuukausi_numero <= 12:
+                break
+            else:
+                print("Kuukausi numeron on oltava välillä 1-12.")
+        except ValueError:
+            print("Virheellinen syöte. Anna numero.")
+
+    tulosta_vuodenaika(kuukausi_numero)
